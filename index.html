@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustStreamIt</title>
@@ -10,11 +10,11 @@
 <body>
     <section class="header">
         <div class="logo">
-            <a href="images/logo.png" alt="logo JustStreamIt">
-            </a>
+            <img src="images/logo.png" alt="Logo JustStreamIt" class="logo-size">
+            
         </div>
         <div class="menu">
-            <h2 class="menu1">Accueil</h2>
+            <a href="index.html"><h2 class="menu1">Accueil</h2></a>
             <h2 class="menu2">Catégories</h2>
         </div>
     </section>
@@ -22,42 +22,55 @@
     <section class="discover">
         <div class="title-movie">
             <h1>Découvrir</h1>
+            <h2>Le meilleur film</h2>
+            
         </div>
-        <div class="play-movie">
-            <button>Play</button>
+        <div id="title_best_movie">
         </div>
-        <div class="img-movie"></div>
+        <div class="details-discover">
+            <div class="img-movie">
+                <img id="img_best_movie" src="" alt="">
+            </div>
+            <div class="play-movie">
+                <button id="play_btn">Play</button>
+                <p id="summary_best_movie"></p>
+            </div>
+        </div>
+        
 
     </section>
 
     <section  class="top-rated-movie">
-        <h2>Films les mieux notés</h2>
+        <h1>Films les mieux notés</h1>
 
-        <button><i class="fas fa-chevron-left"></i></button>
-        <div class="caroussel-best-movie"></div>
-        <button><i class="fas fa-chevron-right"></i></button>
+        <button id="previous_btn"><i class="fas fa-chevron-left"></i></button>
+        <div id="caroussel_container_best_7_movies">
+        </div>
+        <button id="next_btn"><i class="fas fa-chevron-right"></i></button>
     </section>
 
     <section class="best-action-movie">
-        <h2>Les 7 films d'action les mieux notés</h2>
+        <h1>Les 7 films d'action les mieux notés</h1>
         <button><i class="fas fa-chevron-left"></i></button>
-        <div class="caroussel-best-action-movie"></div>
+        <div id="caroussel_container_action_movies">
+            
+        </div>
         <button><i class="fas fa-chevron-right"></i></button>
     </section>
 
 
     <section class="best-romance-movie">
-        <h2>Les 7 films romance les mieux notés</h2>
+        <h1>Les 7 films romance les mieux notés</h1>
         <button><i class="fas fa-chevron-left"></i></button>
-        <div class="caroussel-best-romance-movie"></div>
+        <div id="caroussel_container_romance_movies"></div>
         <button><i class="fas fa-chevron-right"></i></button>
     </section>
 
 
     <section class="best-history-movie">
-        <h2>Les 7 films d'histoire les mieux notés</h2>
+        <h1>Les 7 films d'histoire les mieux notés</h1>
         <button><i class="fas fa-chevron-left"></i></button>
-        <div class="caroussel-best-history-movie"></div>
+        <div id="caroussel_container_history_movies"></div>
         <button><i class="fas fa-chevron-right"></i></button>
     </section>
 </body>

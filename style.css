@@ -1,0 +1,76 @@
+body{
+    background-color: #262626;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    gap: 30px;
+    padding-right: 30px;
+    
+}
+.header{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    justify-content: space-between;
+}
+h1, h2{
+    font: italic small-caps bold 16px/2 cursive;
+    
+}
+.logo-size{
+    width: 150px;
+}
+h1{
+    color: #9E1915;
+    font-size: 3em;
+}
+.discover{
+
+    height: 100vh;
+   
+}
+#title_best_movie{
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.img-movie img{
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.play-movie button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.play-movie button:hover {
+    background-color: #ff0000;
+}
+
+#summary_best_movie {
+    font-size: 1.1em;
+    max-width: 600px;
+    line-height: 1.5;
+}
+.details-discover{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    align-items: center;
+    }
+
+#caroussel_container_best_7_movies, #caroussel_container_action_movies , #caroussel_container_romance_movies, #caroussel_container_history_movies{
+    display: flex;
+    flex-direction: row;
+}
