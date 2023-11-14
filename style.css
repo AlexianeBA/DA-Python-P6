@@ -73,4 +73,5 @@ h1{
 #caroussel_container_best_7_movies, #caroussel_container_action_movies , #caroussel_container_romance_movies, #caroussel_container_history_movies{
     display: flex;
     flex-direction: row;
+    gap: 40px;
 }
