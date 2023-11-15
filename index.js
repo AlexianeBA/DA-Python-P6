@@ -73,6 +73,11 @@ function displayBestMoviesOfCategories(movies, containerId){
 
         const imgMovie = document.createElement('img');
         imgMovie.src = movie.image_url;
+        imgMovie.alt = movie.title;
+
+        imgMovie.addEventListener('click', () => {
+            openModal(movie.title, movie.image_url)
+        })
 
         movieContainer.appendChild(titleMovie);
         movieContainer.appendChild(imgMovie);
@@ -84,3 +89,29 @@ function displayBestMoviesOfCategories(movies, containerId){
 fetchBestMoviesOfCategories('action', 'caroussel_container_action_movies');
 fetchBestMoviesOfCategories('romance', 'caroussel_container_romance_movies');
 fetchBestMoviesOfCategories('history', 'caroussel_container_history_movies');
+
+function openModal(title, image_url){
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    const modalTitle = document.createElement('h2');
+    modalTitle.textContent = title;
+    
+    const modalImg = document.createElement('img');
+    modalImg.src = image_url;
+    modalImg.alt = title;
+
+    modalContent.appendChild(modalTitle);
+    modalContent.appendChild(modalImg);
+
+    modal.appendChild(modalContent);
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', () => {
+        modal.remove();
+    });
+}
