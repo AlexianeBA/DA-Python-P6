@@ -48,115 +48,39 @@ function display7BestMovies(movies) {
  
 fetchBestMovies();
 
-function fetchActionMovies(){
-    const url = "http://localhost:8000/api/v1/titles/?&imdb_score=&imdb_score_min=&imdb_score_max=&genre=action&genre_contains=&sort_by=-imdb_score&page_size=8"
+function fetchBestMoviesOfCategories(genre, containerId){
+    const url = `http://localhost:8000/api/v1/titles/?&imdb_score=&imdb_score_min=&imdb_score_max=&genre=${genre}&genre_contains=&sort_by=-imdb_score&page_size=8`;
     fetch(url)
         .then(response => response.json())
-        .then(data => display7BestActionMovies(data.results))
-        .catch(error => console.error('Erreur', error))
-
-}
-
-function display7BestActionMovies(movies){
-    const sortedMovies = movies.sort((a, b) => parseFloat(b.imdb_score) - parseFloat(a.imdb_score));
-    const best7Movies = sortedMovies.slice(0, 7);
-
-    const carousselContainer = document.getElementById('caroussel_container_action_movies');
-
-    for (let i = 0; i < best7Movies.length; i++) {
-        const movie = best7Movies[i];
-
-        const movieContainer = document.createElement('div');
-        movieContainer.classList.add('movie-item');
-
-        const titleElement = document.createElement('h2');
-        titleElement.textContent = movie.title;
-
-        const imageElement = document.createElement('img');
-        imageElement.src = movie.image_url;
-        imageElement.alt = movie.title;
-
-
-        movieContainer.appendChild(titleElement);
-        movieContainer.appendChild(imageElement);
-
-        carousselContainer.appendChild(movieContainer);
-    }
-
-}
-fetchActionMovies();
-
-function fetchRomanceMovie(){
-    const url = "http://localhost:8000/api/v1/titles/?&imdb_score=&imdb_score_min=&imdb_score_max=&genre=romance&genre_contains=&sort_by=-imdb_score&page_size=8"
-    fetch(url)
-        .then(response => response.json())
-        .then(data => display7BestRomanceMovies(data.results))
-        .catch(error => console.error('Erreur', error))
-}
-function display7BestRomanceMovies(movies){
-    const sortedMovies = movies.sort((a, b) => parseFloat(b.imdb_score) - parseFloat(a.imdb_score));
-    const best7Movies = sortedMovies.slice(0, 7);
-
-    const carousselContainer = document.getElementById('caroussel_container_romance_movies');
-
-    for (let i = 0; i < best7Movies.length; i++) {
-        const movie = best7Movies[i];
-
-        const movieContainer = document.createElement('div');
-        movieContainer.classList.add('movie-item');
-
-        const titleElement = document.createElement('h2');
-        titleElement.textContent = movie.title;
-
-        const imageElement = document.createElement('img');
-        imageElement.src = movie.image_url;
-        imageElement.alt = movie.title;
-
-
-        movieContainer.appendChild(titleElement);
-        movieContainer.appendChild(imageElement);
-
-        carousselContainer.appendChild(movieContainer);
-    }
-
-}
-
-fetchRomanceMovie();
-
-function fetchHistoryMovie(){
-    const url = "http://localhost:8000/api/v1/titles/?&imdb_score=&imdb_score_min=&imdb_score_max=&genre=history&genre_contains=&sort_by=-imdb_score&page_size=8"
-    fetch(url)
-        .then(response => response.json())
-        .then(data => display7BestHistoryMovies(data.results))
+        .then(data => displayBestMoviesOfCategories(data.results, containerId))
         .catch(error => console.error('Erreur', error))
 }
 
-function display7BestHistoryMovies(movies){
+function displayBestMoviesOfCategories(movies, containerId){
+    const sortedMovies = movies.sort((a,b) => parseFloat(b.imdb_score)- parseFloat(a.imdb_score));
+    const best7Movies = sortedMovies.slice(0,7);
 
-    const sortedMovies = movies.sort((a, b) => parseFloat(b.imdb_score) - parseFloat(a.imdb_score));
-    const best7Movies = sortedMovies.slice(0, 7);
+    const carousselContainer = document.getElementById(containerId);
 
-    const carousselContainer = document.getElementById('caroussel_container_history_movies');
-
-    for (let i = 0; i < best7Movies.length; i++) {
+    for (let i=0; i < best7Movies.length; i++){
         const movie = best7Movies[i];
 
         const movieContainer = document.createElement('div');
-        movieContainer.classList.add('movie-item');
+        movieContainer.classList.add("movie-item");
 
-        const titleElement = document.createElement('h2');
-        titleElement.textContent = movie.title;
+        const titleMovie = document.createElement('h2');
+        titleMovie.textContent = movie.title;
 
-        const imageElement = document.createElement('img');
-        imageElement.src = movie.image_url;
-        imageElement.alt = movie.title;
+        const imgMovie = document.createElement('img');
+        imgMovie.src = movie.image_url;
 
-
-        movieContainer.appendChild(titleElement);
-        movieContainer.appendChild(imageElement);
-
+        movieContainer.appendChild(titleMovie);
+        movieContainer.appendChild(imgMovie);
         carousselContainer.appendChild(movieContainer);
-    }
 
-}
-fetchHistoryMovie()
+    }
+}   
+
+fetchBestMoviesOfCategories('action', 'caroussel_container_action_movies');
+fetchBestMoviesOfCategories('romance', 'caroussel_container_romance_movies');
+fetchBestMoviesOfCategories('history', 'caroussel_container_history_movies');
