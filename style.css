@@ -70,8 +70,41 @@ h1{
     align-items: center;
     }
 
-#caroussel_container_best_7_movies, #caroussel_container_action_movies , #caroussel_container_romance_movies, #caroussel_container_history_movies{
+#caroussel_container_best_7_movies, #caroussel_container_drama_movies , #caroussel_container_romance_movies, #caroussel_container_history_movies{
     display: flex;
     flex-direction: row;
     gap: 40px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    width: 70%;
+    max-width: 800px;
+    height: 60vh;
+    max-height: 500px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px black;
+    z-index: 1000;
+}
+
+.modal-content {
+    color: white;
+}
+
+.centered-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.close-btn{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 50px;
 }
