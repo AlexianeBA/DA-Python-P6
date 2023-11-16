@@ -1,5 +1,8 @@
 body{
-    background-color: #262626;
+    background-color:  #d4abd3;
+    Font-family: Calibri;
+    padding: 20px;
+    
 }
 
 .menu{
@@ -11,16 +14,23 @@ body{
     
 }
 .header{
-    background-color: black;
     display: flex;
     flex-direction: row;
     gap: 150px;
     justify-content: space-between;
+    background-color:#DFC5DE;
+    padding: 20px;
+    border-radius: 10px;
 }
-h1, h2{
-    font: italic small-caps bold 16px/2 cursive;
-    
+
+
+.discover-container, .caroussel{
+    background-color: #998498;
+    padding: 20px;
+    border-radius: 10px;
 }
+
+
 .logo-size{
     width: 150px;
 }
@@ -107,4 +117,25 @@ h1{
     display: flex;
     justify-content: flex-end;
     font-size: 50px;
+}
+
+.container {
+    width: 80%;
+    
+}
+
+.caroussel-inner{
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-item{
+    margin: 10px;
+    text-align: center;
+}
+
+
+.movie-title{
+    font-size: 20px;
+    margin-bottom: 25px;
 }

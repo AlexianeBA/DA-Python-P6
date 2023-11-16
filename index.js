@@ -77,10 +77,16 @@ function displayBestMoviesOfCategories(movies, containerId){
 
         const titleMovie = document.createElement('h2');
         titleMovie.textContent = movie.title;
+        titleMovie.classList.add()
 
         const imgMovie = document.createElement('img');
         imgMovie.src = movie.image_url;
         imgMovie.alt = movie.title;
+        imgMovie.classList.add("movie-img");
+
+        const detailsMovie = document.createElement('button');
+        detailsMovie.textContent = "Détails";
+        detailsMovie.classList.add("movie-details");
 
         const genreMovie = document.createElement('p');
         genreMovie.textContent = movie.genres;
@@ -113,13 +119,14 @@ function displayBestMoviesOfCategories(movies, containerId){
         scoreImdbMovie.textContent = movie.imdb_score;
 
 
-        imgMovie.addEventListener('click', () => {
+        detailsMovie.addEventListener('click', () => {
             openModal(movie.title, movie.image_url, movie.genres, movie.year, movie.rated, movie.imdb_score, movie.directors, movie.actors, movie.duration, movie.countries, movie.budget, movie.description, movie.id);
             fetchMovieDetails(movie.id)
         })
 
         movieContainer.appendChild(titleMovie);
         movieContainer.appendChild(imgMovie);
+        movieContainer.appendChild(detailsMovie);
         carousselContainer.appendChild(movieContainer);
 
     }
@@ -243,3 +250,5 @@ function fetchMovieDetails(movieId){
         .then(response => response.json()
         )
 }
+
+

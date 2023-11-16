@@ -20,48 +20,53 @@
     </section>
 
     <section class="discover">
-        <div class="title-movie">
-            <h1>Découvrir</h1>
-            <h2>Le meilleur film</h2>
-            
-        </div>
-        <div id="title_best_movie">
-        </div>
-        <div class="details-discover">
-            <div class="img-movie">
-                <img id="img_best_movie" src="" alt="">
+        <h1></i>Découvrir</h1>
+        <h2>Le meilleur film d'après les téléspéctateurs</h2>
+        <div class="discover-container">
+            <div class="title-movie">    
             </div>
-            <div class="play-movie">
-                <button id="play_btn">Play</button>
-                <p id="summary_best_movie">Résumé du film: </p>
+            
+        
+            <div class="details-discover">
+                <div class="img-movie">
+                    <img id="img_best_movie" src="" alt="">
+                </div>
+                <div class="play-movie">
+                    
+                    <p id="summary_best_movie">Résumé du film: </p>
+                    <button id="play_btn">Play</button>
+                    <button id="detail-movie"><i class="fas fa-info-circle"></i></button>
+                </div>
+                <div id="title_best_movie">
+                </div>
             </div>
         </div>
         
 
     </section>
 
-    <section  class="top-rated-movie container" id="caroussel1">
+    <section  class="top-rated-movie container" >
         <h1>Films les mieux notés</h1>
         <div class="caroussel">
-            <div class="caroussel-inner">
-                <button class="caroussel-controls previous_btn" ><i class="fas fa-chevron-left"></i></button>
+            <div class="caroussel-inner" id="caroussel1">
+                <button class="caroussel-controls previous_btn" id="leftBtn1"><i class="fas fa-chevron-left"></i></button>
                 <div id="caroussel_container_best_7_movies" class="slide active">
                 </div>
-                <button class="caroussel-controls next_btn" ><i class="fas fa-chevron-right"></i></button>
+                <button class="caroussel-controls next_btn" id="rightBtn1" ><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
         <div class="caroussel-dots"></div>
     </section>
 
-    <section class="best-drama-movie container" id="caroussel2">
+    <section class="best-drama-movie container" >
         <h1>Les 7 films de drame les mieux notés</h1>
         <div class="caroussel">
-            <div class="caroussel-inner">
-                <button class="caroussel-controls previous_btn"><i class="fas fa-chevron-left" ></i></button>
+            <div class="caroussel-inner" id="caroussel2">
+                <button class="caroussel-controls previous_btn" id="leftBtn2"><i class="fas fa-chevron-left" ></i></button>
                 <div id="caroussel_container_drama_movies" class="slide active">
                     
                 </div>
-                <button class="caroussel-controls next_btn"><i class="fas fa-chevron-right"></i></button>
+                <button class="caroussel-controls next_btn" id="rightBtn2"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
         
@@ -69,14 +74,14 @@
     </section>
 
 
-    <section class="best-romance-movie container" id="caroussel3">
+    <section class="best-romance-movie container" >
         <h1>Les 7 films romance les mieux notés</h1>
         <div class="caroussel">
-            <div class="caroussel-inner">
+            <div class="caroussel-inner" id="caroussel3">
                 
-                <button  class="caroussel-controls previous_btn"><i class="fas fa-chevron-left"></i></button>
+                <button  class="caroussel-controls previous_btn" id="leftBtn3"><i class="fas fa-chevron-left"></i></button>
                 <div id="caroussel_container_romance_movies" class="slide active"></div>
-                <button class="caroussel-controls next_btn"><i class="fas fa-chevron-right"></i></button>
+                <button class="caroussel-controls next_btn" id="rightBtn3"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
         
@@ -84,14 +89,14 @@
     </section>
 
 
-    <section class="best-history-movie container" id="caroussel4">
+    <section class="best-history-movie container" >
         <h1>Les 7 films d'histoire les mieux notés</h1>
         <div class="caroussel">
-            <div class="caroussel-inner">
+            <div class="caroussel-inner" id="caroussel4">
                
-                <button class="caroussel-controls previous_btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="caroussel-controls previous_btn" id="leftBtn4"><i class="fas fa-chevron-left"></i></button>
                 <div id="caroussel_container_history_movies" class="slide active"></div>
-                <button class="caroussel-controls next_btn"><i class="fas fa-chevron-right"></i></button>
+                <button class="caroussel-controls next_btn" id="rightBtn4"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
         <div class="caroussel-dots"></div>
