@@ -37,18 +37,22 @@ function display7BestMovies(movies) {
 
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-item');
-
-        const titleElement = document.createElement('h2');
-        titleElement.textContent = movie.title;
+        const detailsMovie = document.createElement('button');
+        detailsMovie.textContent = "Détails";
+        detailsMovie.classList.add("movie-details");
 
         const imageElement = document.createElement('img');
         imageElement.src = movie.image_url;
         imageElement.alt = movie.title;
 
+        detailsMovie.addEventListener('click', () => {
+            openModal(movie.title, movie.image_url, movie.genres, movie.year, movie.rated, movie.imdb_score, movie.directors, movie.actors, movie.duration, movie.countries, movie.budget, movie.description, movie.id);
+            fetchMovieDetails(movie.id)
+        })
 
-        movieContainer.appendChild(titleElement);
+        
         movieContainer.appendChild(imageElement);
-
+        movieContainer.appendChild(detailsMovie);
         carousselContainer.appendChild(movieContainer);
     }
 }
@@ -75,9 +79,7 @@ function displayBestMoviesOfCategories(movies, containerId){
         const movieContainer = document.createElement('div');
         movieContainer.classList.add("movie-item");
 
-        const titleMovie = document.createElement('h2');
-        titleMovie.textContent = movie.title;
-        titleMovie.classList.add()
+
 
         const imgMovie = document.createElement('img');
         imgMovie.src = movie.image_url;
@@ -124,7 +126,7 @@ function displayBestMoviesOfCategories(movies, containerId){
             fetchMovieDetails(movie.id)
         })
 
-        movieContainer.appendChild(titleMovie);
+    
         movieContainer.appendChild(imgMovie);
         movieContainer.appendChild(detailsMovie);
         carousselContainer.appendChild(movieContainer);
