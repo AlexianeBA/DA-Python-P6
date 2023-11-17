@@ -271,12 +271,12 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
     let currentIndex = 0;
 
     nextBtn.addEventListener('click', function () {
-        currentIndex = (currentIndex + 1) % 7; 
+        currentIndex = (currentIndex + 1) % 7;
         updateCarousel();
     });
 
     prevBtn.addEventListener('click', function () {
-        currentIndex = (currentIndex - 1 + 7) % 7; 
+        currentIndex = (currentIndex - 1 + 7) % 7;
         updateCarousel();
     });
 
@@ -286,11 +286,24 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
     }
 
     function duplicateSlides() {
-        for (let i = 0; i < 2; i++) {
-            const clone = carouselContainer.cloneNode(true);
-            carousel.appendChild(clone);
+        const slides = carouselContainer.children;
+
+        // Vérifie si les éléments du carrousel existent avant de les dupliquer
+        if (slides.length > 0) {
+            for (let i = 0; i < slides.length; i++) {
+                const clone = slides[i].cloneNode(true);
+                carouselContainer.appendChild(clone);
+            }
         }
     }
 
+    // Appel à la fonction duplicateSlides après l'initialisation du carrousel
     duplicateSlides();
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    initializeCarousel('caroussel1', 'leftBtn2', 'rightBtn2', 'caroussel_container_best_7_movies');
+    initializeCarousel('caroussel2', 'leftBtn1', 'rightBtn1', 'caroussel_container_drama_movies');
+    initializeCarousel('caroussel3', 'leftBtn3', 'rightBtn3', 'caroussel_container_romance_movies');
+    initializeCarousel('caroussel4', 'leftBtn4', 'rightBtn4', 'caroussel_container_history_movies');
+});
