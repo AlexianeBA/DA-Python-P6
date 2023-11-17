@@ -92,25 +92,25 @@ h1{
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
-    width: 70%;
-    max-width: 800px;
-    height: 60vh;
-    max-height: 500px;
+    width: 50%;
+    height: 80%;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px black;
     z-index: 1000;
+    padding: 5px 10px 10px 10px;
 }
 
 .modal-content {
     color: white;
+    
+   
 }
 
 .centered-modal {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 .close-btn{
@@ -138,4 +138,8 @@ h1{
 .movie-title{
     font-size: 20px;
     margin-bottom: 25px;
+}
+
+.title-movie-modal{
+    margin: 5px 10px 5px 10px;
 }

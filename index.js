@@ -13,16 +13,20 @@ function displayBestMovie(movies){
     const bestMovie = sortedMovies[0];
     document.getElementById('title_best_movie').textContent = bestMovie.title;
     document.getElementById('img_best_movie').src = bestMovie.image_url
-    document.getElementById('summary_best_movie').textContent = 'resumé'
     fetchMovieDetails(bestMovie.id)
-        .then(bestMovie => {
-            document.getElementById('summary_best_movie').textContent = `Résumé du film : ${bestMovie.description}`;
-        })
-        .catch(error => {
-            console.error('Erreur récupération résumé', error);
+.then(movieDetails => {
+    document.getElementById('summary_best_movie').textContent = `Résumé du film: ${movieDetails.description}`;
+})
+.catch(error =>{
+    console.error('Erreur résumé', error);
+});
+const detailsMovie = document.getElementById('detail-movie');
+detailsMovie.addEventListener('click', ()=> {
+openModal(bestMovie.title, bestMovie.image_url, bestMovie.genres, bestMovie.year, bestMovie.rated, bestMovie.imdb_score, bestMovie.directors, bestMovie.actors, bestMovie.duration, bestMovie.countries, bestMovie.budget, bestMovie.description, bestMovie.id)
+})
+};
 
-        });
-}
+
 
 
 
@@ -138,8 +142,8 @@ fetchBestMoviesOfCategories('drama', 'caroussel_container_drama_movies');
 fetchBestMoviesOfCategories('romance', 'caroussel_container_romance_movies');
 fetchBestMoviesOfCategories('history', 'caroussel_container_history_movies');
 
-function openModal(title, image_url, genres, year, rated, imdb_score, directors, actors, duration, countries,budget, description, id){
-    
+function openModal(title, image_url, genres, year, rated, imdb_score, directors, actors, duration, countries,budget, description, id)
+{   
     const modal = document.createElement('div');
     modal.classList.add('modal');
 
@@ -152,12 +156,14 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
 
     const modalTitle = document.createElement('h2');
     modalTitle.textContent = title;
+    modalTitle.classList.add("title-movie-modal")
     
     const modalImg = document.createElement('img');
     modalImg.src = image_url;
     modalImg.alt = title;
 
     const modalGenre = document.createElement('p');
+    modalGenre.classList.add('genres')
     modalGenre.textContent = genres;
 
     const modalYear = document.createElement('p');
@@ -189,9 +195,6 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
     const modalDurating = document.createElement('p');
     modalDurating.textContent = duration;
 
-
-   
-
     modalContent.appendChild(closeBtn);
     modalContent.appendChild(modalTitle);
     modalContent.appendChild(modalImg);
@@ -204,13 +207,10 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
     modalContent.appendChild(modalContrie);
     modalContent.appendChild(modalBoxOffice);
     modalContent.appendChild(modalResume);
-
-
+    modalContent.appendChild(modalResume);
     modal.appendChild(modalContent);
-
     document.body.appendChild(modal);
-
-    modal.classList.add('centered-modal');
+    modal.classList.add('centered-modal'),
 
     modal.addEventListener('click', () =>{
         modal.remove();
@@ -227,22 +227,23 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
 
     fetchMovieDetails(id)
         .then(movieDetails => {
-            // Charger les détails du film dans la modal
-            modalGenre.textContent = movieDetails.genres;
-            modalYear.textContent = movieDetails.year;
-            modalRated.textContent = movieDetails.rated;
-            modalImdbScore.textContent = movieDetails.imdb_score;
-            modalDirectors.textContent = movieDetails.directors;
-            modalActors.textContent = movieDetails.actors;
-            modalContrie.textContent = movieDetails.countries;
-            modalBoxOffice.textContent = movieDetails.budget;
-            modalResume.textContent = movieDetails.description;
+            modalGenre.textContent = `Genres du film: ${movieDetails.genres}`;
+            modalYear.textContent = `Année de sortie: ${movieDetails.year}`;
+            modalRated.textContent =  `Limite d'âge: ${movieDetails.rated}`;
+            modalImdbScore.textContent =  `Note: ${movieDetails.imdb_score}`;
+            modalDirectors.textContent =  `Producteurs: ${movieDetails.directors}`;
+            modalActors.textContent =  `Acteurs: ${movieDetails.actors}`;
+            modalContrie.textContent =  `Pays d'origine: ${movieDetails.countries}`;
+            modalBoxOffice.textContent =  `Budget: ${movieDetails.budget}`;
+            modalResume.textContent =  `Résumé: ${movieDetails.description}`;
         })
         .catch(error => {
-            console.error('Erreur lors de la récupération des détails du film :', error);
-            // Gérer l'erreur si nécessaire
+            console.error('Erreur détails du film :', error);
         });
 }
+
+
+    
 
 
 function fetchMovieDetails(movieId){
