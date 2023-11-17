@@ -124,10 +124,6 @@ h1{
     
 }
 
-.caroussel-inner{
-    display: flex;
-    flex-direction: row;
-}
 
 .movie-item{
     margin: 10px;
@@ -142,4 +138,50 @@ h1{
 
 .title-movie-modal{
     margin: 5px 10px 5px 10px;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.movie-poster {
+    flex: 0 0 calc(100% / 5);
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.previous_btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
 }

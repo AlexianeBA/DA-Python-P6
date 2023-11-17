@@ -255,3 +255,42 @@ function fetchMovieDetails(movieId){
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    initializeCarousel('caroussel1', 'leftBtn2', 'rightBtn2', 'caroussel_container_best_7_movies');
+    initializeCarousel('caroussel2', 'leftBtn1', 'rightBtn1', 'caroussel_container_drama_movies');
+    initializeCarousel('caroussel3', 'leftBtn3', 'rightBtn3', 'caroussel_container_romance_movies');
+    initializeCarousel('caroussel4', 'leftBtn4', 'rightBtn4', 'caroussel_container_history_movies');
+});
+
+function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
+    const carousel = document.getElementById(carouselId);
+    const prevBtn = document.getElementById(leftBtnId);
+    const nextBtn = document.getElementById(rightBtnId);
+    const carouselContainer = document.getElementById(containerId);
+
+    let currentIndex = 0;
+
+    nextBtn.addEventListener('click', function () {
+        currentIndex = (currentIndex + 1) % 7; 
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', function () {
+        currentIndex = (currentIndex - 1 + 7) % 7; 
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        const translateValue = -currentIndex * 100;
+        carouselContainer.style.transform = `translateX(${translateValue}%)`;
+    }
+
+    function duplicateSlides() {
+        for (let i = 0; i < 2; i++) {
+            const clone = carouselContainer.cloneNode(true);
+            carousel.appendChild(clone);
+        }
+    }
+
+    duplicateSlides();
+}
