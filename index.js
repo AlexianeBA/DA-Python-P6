@@ -263,30 +263,33 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
+    const itemsPerSlide = 5; // Nombre d'éléments par slide
+
     const carousel = document.getElementById(carouselId);
     const prevBtn = document.getElementById(leftBtnId);
     const nextBtn = document.getElementById(rightBtnId);
     const carouselContainer = document.getElementById(containerId);
+    let slides = carouselContainer.children;
 
     let currentIndex = 0;
-
+    
     nextBtn.addEventListener('click', function () {
-        currentIndex = (currentIndex + 1) % 7;
+        currentIndex = (currentIndex + 1) % (slides.length - itemsPerSlide + 1);
         updateCarousel();
     });
 
     prevBtn.addEventListener('click', function () {
-        currentIndex = (currentIndex - 1 + 7) % 7;
+        currentIndex = (currentIndex - 1 + slides.length - itemsPerSlide + 1) % (slides.length - itemsPerSlide + 1);
         updateCarousel();
     });
 
     function updateCarousel() {
-        const translateValue = -currentIndex * 100;
+        const translateValue = -currentIndex * (100/ itemsPerSlide);
         carouselContainer.style.transform = `translateX(${translateValue}%)`;
     }
 
     function duplicateSlides() {
-        const slides = carouselContainer.children;
+        slides = carouselContainer.children;
 
         // Vérifie si les éléments du carrousel existent avant de les dupliquer
         if (slides.length > 0) {
@@ -300,10 +303,3 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
     // Appel à la fonction duplicateSlides après l'initialisation du carrousel
     duplicateSlides();
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    initializeCarousel('caroussel1', 'leftBtn2', 'rightBtn2', 'caroussel_container_best_7_movies');
-    initializeCarousel('caroussel2', 'leftBtn1', 'rightBtn1', 'caroussel_container_drama_movies');
-    initializeCarousel('caroussel3', 'leftBtn3', 'rightBtn3', 'caroussel_container_romance_movies');
-    initializeCarousel('caroussel4', 'leftBtn4', 'rightBtn4', 'caroussel_container_history_movies');
-});

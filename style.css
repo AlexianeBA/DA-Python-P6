@@ -140,21 +140,17 @@ h1{
     margin: 5px 10px 5px 10px;
 }
 
-.carousel {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
+.carousel-container {
+    position: relative; /* Ajout de la position relative */
+    display: flex;
     overflow: hidden;
 }
 
 .carousel-slide {
     display: flex;
-    align-items: center;
-}
-
-.carousel-slide {
-    display: flex;
     transition: transform 0.5s ease-in-out;
+    position: relative; /* Ajout de la position relative */
+    z-index: 1; /* Assurez-vous que le conteneur du carrousel est au-dessus des boutons */
 }
 
 .movie-poster {
@@ -164,10 +160,15 @@ h1{
     text-align: center;
     background-color: #fff;
     border: 1px solid #ddd;
+    display: none;
 }
 
-.carousel-controls {
-    position: absolute;
+.active {
+    display: flex;
+}
+
+.caroussel-controls {
+    position: absolute; /* Utiliser la position absolue pour positionner les boutons */
     top: 50%;
     transform: translateY(-50%);
     background-color: #333;
@@ -176,12 +177,13 @@ h1{
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
+    z-index: 2; /* Assurez-vous que les boutons sont au-dessus du contenu du carrousel */
 }
 
 .previous_btn {
     left: 0;
 }
 
-.next-btn {
+.next_btn {
     right: 0;
 }
