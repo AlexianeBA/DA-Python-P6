@@ -43,6 +43,7 @@ function display7BestMovies(movies) {
         movieContainer.classList.add('movie-item');
         const detailsMovie = document.createElement('button');
         detailsMovie.textContent = "Détails";
+        detailsMovie.style.cursor='pointer';
         detailsMovie.classList.add("movie-details");
 
         const imageElement = document.createElement('img');
@@ -93,6 +94,7 @@ function displayBestMoviesOfCategories(movies, containerId){
         const detailsMovie = document.createElement('button');
         detailsMovie.textContent = "Détails";
         detailsMovie.classList.add("movie-details");
+        detailsMovie.style.cursor='pointer';
 
         const genreMovie = document.createElement('p');
         genreMovie.textContent = movie.genres;
@@ -142,8 +144,7 @@ fetchBestMoviesOfCategories('drama', 'caroussel_container_drama_movies');
 fetchBestMoviesOfCategories('romance', 'caroussel_container_romance_movies');
 fetchBestMoviesOfCategories('history', 'caroussel_container_history_movies');
 
-function openModal(title, image_url, genres, year, rated, imdb_score, directors, actors, duration, countries,budget, description, id)
-{   
+function openModal(title, image_url, genres, year, rated, imdb_score, directors, actors, duration, countries,budget, description, id){   
     const modal = document.createElement('div');
     modal.classList.add('modal');
 
@@ -153,6 +154,7 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
     const closeBtn = document.createElement('span');
     closeBtn.classList.add('close-btn');
     closeBtn.innerHTML = '&times;';
+    closeBtn.style.cursor='pointer'
 
     const modalTitle = document.createElement('h2');
     modalTitle.textContent = title;
@@ -207,14 +209,15 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
     modalContent.appendChild(modalContrie);
     modalContent.appendChild(modalBoxOffice);
     modalContent.appendChild(modalResume);
-    modalContent.appendChild(modalResume);
+    modalContent.appendChild(modalDurating);
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
-    modal.classList.add('centered-modal'),
+    modal.classList.add('centered-modal');
 
+        
     modal.addEventListener('click', () =>{
         modal.remove();
-    })
+    });
 
     modalContent.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -233,9 +236,11 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
             modalImdbScore.textContent =  `Note: ${movieDetails.imdb_score}`;
             modalDirectors.textContent =  `Producteurs: ${movieDetails.directors}`;
             modalActors.textContent =  `Acteurs: ${movieDetails.actors}`;
+            modalDurating.textContent = `Durée: ${movieDetails.duration} minutes`;
             modalContrie.textContent =  `Pays d'origine: ${movieDetails.countries}`;
             modalBoxOffice.textContent =  `Budget: ${movieDetails.budget}`;
             modalResume.textContent =  `Résumé: ${movieDetails.description}`;
+            modal.style.display='block';
         })
         .catch(error => {
             console.error('Erreur détails du film :', error);
