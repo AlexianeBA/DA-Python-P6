@@ -26,10 +26,6 @@ openModal(bestMovie.title, bestMovie.image_url, bestMovie.genres, bestMovie.year
 })
 };
 
-
-
-
-
 function display7BestMovies(movies) {
     const sortedMovies = movies.sort((a, b) => parseFloat(b.imdb_score) - parseFloat(a.imdb_score));
     const best7Movies = sortedMovies.slice(0, 7);
@@ -54,15 +50,17 @@ function display7BestMovies(movies) {
             openModal(movie.title, movie.image_url, movie.genres, movie.year, movie.rated, movie.imdb_score, movie.directors, movie.actors, movie.duration, movie.countries, movie.budget, movie.description, movie.id);
             fetchMovieDetails(movie.id)
         })
-
+        
+        
         
         movieContainer.appendChild(imageElement);
         movieContainer.appendChild(detailsMovie);
         carousselContainer.appendChild(movieContainer);
+
+        
     }
 }
- 
-fetchBestMovies();
+
 
 function fetchBestMoviesOfCategories(genre, containerId){
     const url = `http://localhost:8000/api/v1/titles/?&imdb_score=&imdb_score_min=&imdb_score_max=&genre=${genre}&genre_contains=&sort_by=-imdb_score&page_size=8`;
@@ -140,9 +138,7 @@ function displayBestMoviesOfCategories(movies, containerId){
     }
 }   
 
-fetchBestMoviesOfCategories('drama', 'caroussel_container_drama_movies');
-fetchBestMoviesOfCategories('romance', 'caroussel_container_romance_movies');
-fetchBestMoviesOfCategories('history', 'caroussel_container_history_movies');
+
 
 function openModal(title, image_url, genres, year, rated, imdb_score, directors, actors, duration, countries,budget, description, id){   
     const modal = document.createElement('div');
@@ -248,9 +244,6 @@ function openModal(title, image_url, genres, year, rated, imdb_score, directors,
 }
 
 
-    
-
-
 function fetchMovieDetails(movieId){
     const detailsUrl = `http://localhost:8000/api/v1/titles/${movieId}`;
 
@@ -260,12 +253,6 @@ function fetchMovieDetails(movieId){
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    initializeCarousel('caroussel1', 'leftBtn2', 'rightBtn2', 'caroussel_container_best_7_movies');
-    initializeCarousel('caroussel2', 'leftBtn1', 'rightBtn1', 'caroussel_container_drama_movies');
-    initializeCarousel('caroussel3', 'leftBtn3', 'rightBtn3', 'caroussel_container_romance_movies');
-    initializeCarousel('caroussel4', 'leftBtn4', 'rightBtn4', 'caroussel_container_history_movies');
-});
 
 function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
     const itemsPerSlide = 5; // Nombre d'éléments par slide
@@ -279,12 +266,12 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
     let currentIndex = 0;
     
     nextBtn.addEventListener('click', function () {
-        currentIndex = (currentIndex + 1) % (slides.length - itemsPerSlide + 1);
+        currentIndex = (currentIndex + 1) % (slides.length - itemsPerSlide );
         updateCarousel();
     });
 
     prevBtn.addEventListener('click', function () {
-        currentIndex = (currentIndex - 1 + slides.length - itemsPerSlide + 1) % (slides.length - itemsPerSlide + 1);
+        currentIndex = (currentIndex - 1 + slides.length ) % slides.length;
         updateCarousel();
     });
 
@@ -308,3 +295,17 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
     // Appel à la fonction duplicateSlides après l'initialisation du carrousel
     duplicateSlides();
 }
+
+fetchBestMovies();
+
+fetchBestMoviesOfCategories('drama', 'caroussel_container_drama_movies');
+fetchBestMoviesOfCategories('romance', 'caroussel_container_romance_movies');
+fetchBestMoviesOfCategories('history', 'caroussel_container_history_movies');
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    initializeCarousel('caroussel1', 'leftBtn2', 'rightBtn2', 'caroussel_container_best_7_movies');
+    initializeCarousel('caroussel2', 'leftBtn1', 'rightBtn1', 'caroussel_container_drama_movies');
+    initializeCarousel('caroussel3', 'leftBtn3', 'rightBtn3', 'caroussel_container_romance_movies');
+    initializeCarousel('caroussel4', 'leftBtn4', 'rightBtn4', 'caroussel_container_history_movies');
+});
