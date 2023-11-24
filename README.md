@@ -47,4 +47,4 @@ Les étapes 1 à 6 ne sont requises que pout l'installation initiale. Pour les l
 
 ## Démarrage
 
-Ouvrir le fichier index.html dans un navigateur.
+Ouvrir le fichier index.html dans un navigateur (Google, FireFox, ...)
