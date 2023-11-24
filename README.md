@@ -7,7 +7,7 @@ Création d'une interface utilisateur pour l'application web Python JustStreamIt
 ## JustStreamIt :
 
 JustStreamIt est mon sixième projet en Python dans le cadre de ma formation de Développeur d'Application Python via la plateforme de formation OpenClassrooms.
-Contexte: je travaille en tant qu'indépendant et je dois intégrer une structure filaire pour une entreprise qui crée une newsletter sur les films et les émissions de télévision. Ils souhaitent transformer leurs recommandations sur un site internet spécifique. Ils ont envoyé un wireframe pour l'intégration, qui ressemble à une interface "Netflix" avec des fenêtres modales carrousel et onclick. Ce projet utilise HTML/CSS et Vanilla Javascript (pas de framework) et une API interne pour informations.
+Contexte: je travaille en tant qu'indépendant et je dois intégrer une structure filaire pour une entreprise qui crée une newsletter sur les films et les émissions de télévision. Ils souhaitent transformer leurs recommandations sur un site internet spécifique. Ils ont envoyé un wireframe pour l'intégration, qui ressemble à une interface "Netflix" avec des fenêtres modales carrousel et onclick. Ce projet utilise HTML/CSS et Vanilla Javascript (pas de framework) et une API interne.
 
 ## Pour commencer
 
