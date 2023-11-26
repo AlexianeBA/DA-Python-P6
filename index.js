@@ -17,8 +17,14 @@ function displayBestMovie(movies) {
     (a, b) => parseFloat(b.imdb_score) - parseFloat(a.imdb_score)
   );
   const bestMovie = sortedMovies[0];
+
+  const imgBestMovie = document.createElement("img");
+  imgBestMovie.src = bestMovie.image_url;
+  imgBestMovie.alt = bestMovie.title;
+  const imgMovieDiv = document.getElementById("img_movie");
+  imgMovieDiv.appendChild(imgBestMovie);
   document.getElementById("title_best_movie").textContent = bestMovie.title;
-  document.getElementById("img_best_movie").src = bestMovie.image_url;
+
   fetchMovieDetails(bestMovie.id)
     .then((movieDetails) => {
       document.getElementById(
