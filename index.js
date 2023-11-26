@@ -348,7 +348,7 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
   function manageButton() {
     if (currentIndex == 0) {
       prevBtn.style.display = "none";
-    } else if (currentIndex == 3) {
+    } else if (currentIndex == 2) {
       nextBtn.style.display = "none";
     } else {
       prevBtn.style.display = "block";
