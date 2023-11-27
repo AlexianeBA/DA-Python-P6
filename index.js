@@ -334,6 +334,7 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
 
   function updateCarousel() {
     console.log(currentIndex);
+    // calcul de la valeur de translation pour déplacer le contenu du carousel horizontalement.
     const translateValue = -currentIndex * (100 / itemsPerSlide);
     carouselContainer.style.transform = `translateX(${translateValue}%)`;
     manageButton();
@@ -351,6 +352,7 @@ function initializeCarousel(carouselId, leftBtnId, rightBtnId, containerId) {
       }
     }
   }
+  // activer et desactiver les bouttons par rapport au currentIndex.
   function manageButton() {
     if (currentIndex == 0) {
       prevBtn.style.display = "none";
